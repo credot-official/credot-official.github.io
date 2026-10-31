@@ -553,9 +553,11 @@ window.CREDOT_TEMPLATES = [
     '........', '........', '........', '........', '..kkk...', '.kwkwk..', '.kwwwkkk', '.kGGGGGG',
     'kGGGGGGG', 'kGkkkkkk', 'kGGGGGGG', '.kGGyyyy', 'kGGkyyyy', 'kGkkkkkk', '.kk.....', '........',
   ] });
-  T.push({ name: '魔獣ウルフ', cat: 'モンスター', m: [
-    '........', '..k.....', '..kk....', '..kdk...', '..kddkkk', '.kdddddd', '.kdykddd', '.kdddddd',
-    '..kdddll', '..kddlll', '...kdlkk', '...kdwkw', '....kddd', '.....kkk', '........', '........',
+  T.push({ name: '魔獣ウルフ', cat: 'モンスター', rows: [
+    '................', '.kk.......k.....', '.kkdk....kvk....', '..kddkk.kdvk....',
+    '..kddddddydvk...', '...kkddddddvk...', '....kkdddddvk...', '....kdddddddvk..',
+    '....kndddddddvk.', '....kndddddddvk.', '....kndkddddddvk', '....kndkddddddvk',
+    '....kndkdddddddk', '...kkndkdddddnnk', '...kddkkddddnnvk', '...kkkkkkkkkkkkk',
   ] });
   T.push({ name: '人食い花', cat: 'モンスター', m: [
     '........', '.....kkk', '...kkrrr', '..krrrrr', '.krrkkkk', '.krkwkwk', '.krkkkkk', '.krkwkwk',
@@ -628,7 +630,7 @@ window.CREDOT_TEMPLATES = [
   add('属性の将軍', '属性', { hair: 'spiky', head: ['horns'], outfit: ['armor', 'cape'], items: ['bigsword'], c: { H: '2', Y: '3', C: '1', D: '2', L: 'd', F: 'd', K: '2', I: '3' } });
   recolor('属性スライム', '属性', 'スライム', { B: '2', n: '1', w: '3' });
   recolor('属性ドラゴン', '属性', 'ドラゴン', { g: '1', G: '2', o: '3' });
-  recolor('属性の狼', '属性', '魔獣ウルフ', { d: '2', l: '3' });
+  recolor('属性の狼', '属性', '氷の狼', { w: '2', l: '1', B: '3' });
   recolor('属性ゴーレム', '属性', 'ゴーレム', { l: '2', d: '1', y: '3' });
   recolor('属性のコウモリ', '属性', 'コウモリ', { p: '2', r: '3' });
   recolor('属性ゴースト', '属性', 'ゴースト', { w: '3' });

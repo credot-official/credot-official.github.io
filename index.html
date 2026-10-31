@@ -176,6 +176,12 @@ button { touch-action: manipulation; }
 }
 .sheet h2 { margin: 0; font: 18px/1.2 var(--font-display); }
 .sheet p { margin: 0; }
+.terms { display: flex; flex-direction: column; gap: 10px; font-size: 14px; line-height: 1.6; }
+.terms h3 { margin: 6px 0 0; font-size: 15px; }
+.terms ul { margin: 0; padding-left: 1.3em; }
+.terms blockquote { margin: 4px 0; padding: 6px 10px; border-left: 3px solid var(--accent); background: var(--btn); overflow-wrap: anywhere; }
+.terms a { color: var(--accent); overflow-wrap: anywhere; }
+.linkbtn { padding: 0; border: 0; background: none; color: var(--accent); text-decoration: underline; cursor: pointer; font: inherit; }
 .pane { display: flex; flex-direction: column; gap: 12px; }
 .pane[hidden] { display: none; }
 .hint { color: var(--muted); font-size: 13px; }
@@ -256,6 +262,7 @@ input[type=number] { width: 76px; }
       <button id="miTpl">テンプレートから始める</button>
       <button id="miImport">画像からドット絵にする</button>
       <button id="miExport">PNG で書き出す</button>
+      <button id="miTerms">テンプレートの利用規約</button>
     </div>
   </header>
 
@@ -326,7 +333,7 @@ input[type=number] { width: 76px; }
       <label class="check" for="keepArt"><input type="checkbox" id="keepArt"><span>いまの絵を残したまま、大きさだけ変える。絵は真ん中に置かれ、はみ出した部分は切れます。「戻す」で元に戻せます。</span></label>
     </div>
     <div class="pane" id="paneTpl" role="tabpanel" hidden>
-      <p class="hint">下絵が入った状態で始めます。そのまま描き足したり、色を塗り替えたりできます。</p>
+      <p class="hint">下絵が入った状態で始めます。そのまま描き足したり、色を塗り替えたりできます。商用で使うときは<button class="linkbtn" id="tplTerms">利用規約</button>を見てください。</p>
       <div class="chips" id="tplCats" role="group" aria-label="テンプレートの種類"></div>
       <div class="chips el-row" id="tplEls" role="group" aria-label="属性の色" hidden><span class="hint">属性の色：</span></div>
       <div class="tpl-grid" id="tplGrid"></div>
@@ -389,6 +396,64 @@ input[type=number] { width: 76px; }
     <h2 id="t-works">保存した作品</h2>
     <p class="hint" id="worksNote"></p>
     <div class="works" id="worksList"></div>
+    <div class="row end"><button class="btn" data-close>閉じる</button></div>
+  </div>
+</div>
+
+<!-- テンプレートの利用規約（TERMS.md と同じ内容） -->
+<div class="overlay" id="m-terms" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="t-terms">
+    <h2 id="t-terms">テンプレートの利用規約</h2>
+    <div class="terms">
+      <p class="hint">制定日：2026年11月1日　運営：Credot（credot-official）</p>
+      <h3>1. この規約の対象</h3>
+      <ul>
+        <li>この規約は、Credot に入っているテンプレート（下絵）と、テンプレートを元にして描いた絵に適用されます。</li>
+        <li>テンプレートを使わずに自分で描いた絵は、描いた人のものです。この規約の制限はなく、自由に使えます。</li>
+      </ul>
+      <h3>2. 商用でない使い方</h3>
+      <ul>
+        <li>点数の制限なく、自由に使えます。描き足しや色の変更も自由です。</li>
+        <li>クレジット表記はなくてもかまいません（書いてもらえるとうれしいです）。</li>
+      </ul>
+      <h3>3. 商用での使い方</h3>
+      <ul>
+        <li>「商用」とは、お金が発生する使い方のすべてです。例：ゲーム・アプリ・グッズ・本の販売、広告収入や投げ銭のある動画・配信・アプリ・Web サイト、仕事として作る制作物。</li>
+        <li><b>1 つの作品につき 30 点まで</b>、無料で使えます。
+          <ul>
+            <li>「1 つの作品」は、ゲームやアプリなら 1 タイトル、本なら 1 冊、グッズなら 1 シリーズ、動画や配信なら 1 チャンネルです。</li>
+            <li>同じテンプレートの色違い・属性違いは、まとめて 1 点と数えます。</li>
+            <li>テンプレートを元にした絵は、描き足したり描き変えたりしても 1 点と数えます。</li>
+          </ul>
+        </li>
+        <li>商用で使うときは、作品の中か説明文などの見える場所に、次のクレジットを書いてください。
+          <blockquote>ドット絵素材：Credot（https://credot-official.github.io/）</blockquote>
+        </li>
+      </ul>
+      <h3>4. 30 点を超えて商用で使いたいとき</h3>
+      <ul><li>有料の利用許諾が必要です。使う前に、下の連絡先から相談してください。料金と条件は、作品ごとに決めます。</li></ul>
+      <h3>5. 禁止していること</h3>
+      <ul>
+        <li>テンプレートそのものを、素材として再配布・販売すること（点数に関係なく禁止です）</li>
+        <li>テンプレートやそれを元にした絵を、自分が一から作ったものだと言うこと、商標として登録すること</li>
+        <li>人を傷つける使い方（悪口、差別、嫌がらせなど）や、法律に反する使い方</li>
+        <li>テンプレートを NFT にすること</li>
+        <li>テンプレートを AI の学習用データとして使うこと</li>
+      </ul>
+      <h3>6. ツールのプログラム</h3>
+      <ul>
+        <li>Credot のプログラム（ソースコード）を、許可なく複製・改変して公開したり、配布したりすることはできません。</li>
+        <li>Credot を使って絵を描くことは、商用・非商用を問わず自由です。</li>
+      </ul>
+      <h3>7. 規約の変更</h3>
+      <ul><li>この規約は変更することがあります。変更前に使い始めた作品には、使い始めたときの規約が適用されます。</li></ul>
+      <h3>8. 責任の範囲</h3>
+      <ul><li>テンプレートやツールを使って起きたトラブルや損害について、運営は責任を負いません。</li></ul>
+      <h3>9. 準拠法</h3>
+      <ul><li>この規約は日本の法律に基づいて解釈します。</li></ul>
+      <h3>連絡先</h3>
+      <p><a href="https://github.com/credot-official/credot-official.github.io/issues" target="_blank" rel="noopener">GitHub の Issue</a> に投稿してください。投稿は公開されるので、個人情報は書かないでください。くわしいやり取りは、そのあと個別にご案内します。</p>
+    </div>
     <div class="row end"><button class="btn" data-close>閉じる</button></div>
   </div>
 </div>
@@ -1097,6 +1162,10 @@ async function deleteWork(w) {
   } catch (e) { toast('削除できませんでした。もう一度試してください。'); }
 }
 $('#btnWorks').addEventListener('click', () => { ensureWorksSub(); renderWorks(); openModal('#m-works'); });
+
+/* ---------- terms ---------- */
+$('#miTerms').addEventListener('click', () => { setMenu(false); openModal('#m-terms'); });
+$('#tplTerms').addEventListener('click', () => openModal('#m-terms'));
 
 /* ---------- PNG export ---------- */
 let expScale = 8;

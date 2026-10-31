@@ -11,4 +11,5 @@
 ## ファイル
 - `index.html` … 本体（claude.ai の Artifact 版もこのファイル）
 - `templates.js` … テンプレートのデータ
+- `TERMS.md` … テンプレートの利用規約（サイトの「その他」→「テンプレートの利用規約」でも読めます）
 - `build.js` … 公開用の `docs/` を作る（`node build.js`）。GitHub Pages は `docs/` を配信

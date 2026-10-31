@@ -588,7 +588,12 @@ window.CREDOT_TEMPLATES = [
 
   /* モンスター（色違い） */
   recolor('溶岩スライム', 'モンスター', 'スライム', { B: 'o', n: 'r', w: 'y' });
-  recolor('氷の狼', 'モンスター', '魔獣ウルフ', { d: 'B', l: 'w', y: 'r' });
+  T.push({ name: '氷の狼', cat: 'モンスター', rows: [
+    '................', '.kk.......k.....', '.knwk....kBk....', '..kwwkk.kwBk....',
+    '..kwwwwwwkwBk...', '...kkwwwwwwBk...', '....kkwwwwwBk...', '....kwwwwwwwBk..',
+    '....klwwwwwwwBk.', '....klwwwwwwwBk.', '....klwkwwwwwwBk', '....klwkwwwwwwBk',
+    '....klwkwwwwwwwk', '...kklwkwwwwwllk', '...kwwkkwwwwllBk', '...kkkkkkkkkkkkk',
+  ] });
   recolor('黒竜', 'モンスター', 'ドラゴン', { g: 'n', G: 'd', y: 'r', o: 'l' });
   recolor('魔導機兵', 'モンスター', 'ロボット', { l: 'd', B: 'r', d: 'n', r: 'y' });
   recolor('蜃気楼の精', 'モンスター', 'ゴースト', { w: 'y' });

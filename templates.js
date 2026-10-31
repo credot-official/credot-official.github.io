@@ -675,3 +675,6 @@ window.CREDOT_ELEMENTS = [
   { name: '光', c: ['#b89a3a', '#fff0b0', '#ffffff'] },
   { name: '闇', c: ['#24103a', '#6b2fa0', '#b98ae6'] },
 ];
+
+// テンプレートの英字 1 文字と色の対応（ツールの 16 色パレットと同じ）
+window.CREDOT_LEGEND = { k: '#000000', n: '#1d2b53', p: '#7e2553', g: '#008751', b: '#ab5236', d: '#5f574f', l: '#c2c3c7', w: '#fff1e8', r: '#ff004d', o: '#ffa300', y: '#ffec27', G: '#00e436', B: '#29adff', v: '#83769c', P: '#ff77a8', s: '#ffccaa' };

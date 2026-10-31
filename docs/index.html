@@ -274,6 +274,7 @@ input[type=number] { width: 76px; }
       <button id="miTpl">テンプレートから始める</button>
       <button id="miImport">画像からドット絵にする</button>
       <button id="miExport">PNG で書き出す</button>
+      <button id="miList" hidden>テンプレート一覧・ダウンロード</button>
       <button id="miTerms">テンプレートの利用規約</button>
     </div>
   </header>
@@ -502,8 +503,8 @@ const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 const validSide = (v) => Number.isInteger(v) && v >= MIN_SIDE && v <= MAX_SIDE;
 
 /* ---------- templates ---------- */
-// One character per pixel; '.' is transparent. Colors are the default palette.
-const LEGEND = { k: '#000000', n: '#1d2b53', p: '#7e2553', g: '#008751', b: '#ab5236', d: '#5f574f', l: '#c2c3c7', w: '#fff1e8', r: '#ff004d', o: '#ffa300', y: '#ffec27', G: '#00e436', B: '#29adff', v: '#83769c', P: '#ff77a8', s: '#ffccaa' };
+// One character per pixel; '.' is transparent. Letters are the default palette colors.
+const LEGEND = window.CREDOT_LEGEND || {}; // letter -> color, defined in templates.js
 const TEMPLATES = window.CREDOT_TEMPLATES || [];
 const TEMPLATE_CATS = [...new Set(TEMPLATES.map((t) => t.cat))];
 // '1' '2' '3' are the dark / main / light color of the element picked on the template screen.
@@ -1175,6 +1176,23 @@ async function deleteWork(w) {
 }
 $('#btnWorks').addEventListener('click', () => { ensureWorksSub(); renderWorks(); openModal('#m-works'); });
 
+/* ---------- template list page (public site only) ---------- */
+// templates.html exists only on the public site, not inside claude.ai.
+$('#miList').hidden = !!window.claude;
+$('#miList').addEventListener('click', () => { location.href = 'templates.html'; });
+// templates.html links here as ?tpl=<name>&el=<element index> to start drawing from that template.
+async function openFromQuery() {
+  const qs = new URLSearchParams(location.search), name = qs.get('tpl');
+  if (!name) return;
+  history.replaceState(null, '', location.pathname);
+  const t = TEMPLATES.find((x) => x.name === name);
+  if (!t) return;
+  const e = isElemTpl(t) ? ELEMENTS[+qs.get('el')] || ELEMENTS[0] : null;
+  if (!(await guardDirty(`前回の続きの絵は消えて、「${t.name}」に置き換わります。保存していない部分は戻せません。続けますか？`))) return;
+  const q = parseTemplate(t, e);
+  newCanvas(q.w, q.h, q.d); toast(`「${t.name}${e ? '（' + e.name + '）' : ''}」から始めます`);
+}
+
 /* ---------- terms ---------- */
 $('#miTerms').addEventListener('click', () => { setMenu(false); openModal('#m-terms'); });
 $('#tplTerms').addEventListener('click', () => openModal('#m-terms'));
@@ -1396,8 +1414,9 @@ const restored = loadDraft();
 setupBuf(); resetHistory(); syncToggles(); setTool('pen'); updateColorUI(); renderRecent();
 new ResizeObserver(resizeCanvas).observe(stage);
 resizeCanvas();
-if (restored) toast('前回の続きを開きました');
+if (restored && !location.search.includes('tpl=')) toast('前回の続きを開きました');
 initCloud();
+openFromQuery();
 })();
 </script>
 </body>

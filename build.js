@@ -1,5 +1,6 @@
 // Builds the public website into docs/ (GitHub Pages serves that folder).
 // index.html stays the claude.ai Artifact source; the site version only gets a full document head.
+// templates.html (template list with PNG downloads) is site-only and copied as is.
 // Run: node build.js
 const fs = require('fs');
 const path = require('path');
@@ -31,5 +32,6 @@ const head = `<!doctype html>
 fs.mkdirSync(out, { recursive: true });
 fs.writeFileSync(path.join(out, 'index.html'), head + page.replace('</style>\n', '</style>\n</head>\n<body>\n') + '</body>\n</html>\n');
 fs.copyFileSync(path.join(root, 'templates.js'), path.join(out, 'templates.js'));
+fs.copyFileSync(path.join(root, 'templates.html'), path.join(out, 'templates.html'));
 fs.writeFileSync(path.join(out, '.nojekyll'), '');
 console.log('built docs/');

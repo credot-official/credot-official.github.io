@@ -12,4 +12,6 @@
 - `index.html` … 本体（claude.ai の Artifact 版もこのファイル）
 - `templates.js` … テンプレートのデータ
 - `TERMS.md` … テンプレートの利用規約（サイトの「その他」→「テンプレートの利用規約」でも読めます）
+- `templates.html` … テンプレート一覧ページ（PNG ダウンロード、そのまま描き始める）。サイト専用
+- `export-templates.js` … テンプレートをまとめて PNG に書き出す（`node export-templates.js [出力先]`）
 - `build.js` … 公開用の `docs/` を作る（`node build.js`）。GitHub Pages は `docs/` を配信

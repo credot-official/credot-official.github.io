@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>テンプレート一覧 - Credot</title>
+<meta name="description" content="Credot のドット絵テンプレート一覧。キャラ、モンスター、アイテムなど 16×16 の下絵を PNG でダウンロードしたり、そのまま描き始めたりできます。">
+<meta property="og:title" content="テンプレート一覧 - Credot">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#e8ebf1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap">
+<style>
+/* Same color tokens as index.html. */
+:root {
+  --bg: #e8ebf1;
+  --panel: #f6f7fa;
+  --ink: #171b2b;
+  --muted: #5b6279;
+  --line: #c3c9d8;
+  --accent: #3447d4;
+  --accent-ink: #ffffff;
+  --btn: #ffffff;
+  --btn-hover: #eceff7;
+  --chk1: #ffffff;
+  --chk2: #d6dae6;
+  --font-display: "DotGothic16", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+  --font-body: system-ui, -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12141c; --panel: #1b1e2a; --ink: #e7e9f3; --muted: #9aa1b9; --line: #353a54;
+    --accent: #8fa0ff; --accent-ink: #10132a; --btn: #242839; --btn-hover: #2e3349; --chk1: #2b2f40; --chk2: #222636;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12141c; --panel: #1b1e2a; --ink: #e7e9f3; --muted: #9aa1b9; --line: #353a54;
+  --accent: #8fa0ff; --accent-ink: #10132a; --btn: #242839; --btn-hover: #2e3349; --chk1: #2b2f40; --chk2: #222636;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; padding: 0 max(16px, env(safe-area-inset-right, 0px)) 32px max(16px, env(safe-area-inset-left, 0px));
+  background: var(--bg); color: var(--ink); font: 15px/1.6 var(--font-body);
+}
+button, input, select { font: inherit; color: inherit; }
+a { color: var(--accent); }
+.wrap { max-width: 1100px; margin: 0 auto; }
+header { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; padding: 12px 0; }
+.logo { font: 22px/1 var(--font-display); color: var(--ink); text-decoration: none; }
+.logo span { color: var(--accent); }
+header .grow { flex: 1; }
+h1 { margin: 4px 0 6px; font: 24px/1.3 var(--font-display); }
+.lead { margin: 0 0 12px; color: var(--muted); font-size: 14px; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  min-height: 36px; padding: 0 10px; border: 1px solid var(--line); border-radius: 4px;
+  background: var(--btn); cursor: pointer; white-space: nowrap; text-decoration: none; color: var(--ink);
+}
+.btn:hover { background: var(--btn-hover); }
+.btn[aria-pressed="true"], .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.btn.sm { min-height: 30px; padding: 0 8px; font-size: 13px; }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 4px; padding: 12px; display: flex; flex-direction: column; gap: 10px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.label { color: var(--muted); font-size: 13px; min-width: 4.5em; }
+#els .btn::before { content: ''; display: inline-block; width: 12px; height: 12px; background: var(--sw); border: 1px solid var(--ink); border-radius: 2px; }
+#els[hidden] { display: none; }
+input[type=search], select { min-height: 36px; padding: 0 8px; border: 1px solid var(--line); border-radius: 4px; background: var(--btn); }
+input[type=search] { flex: 1 1 200px; min-width: 0; }
+.count { margin: 12px 0 8px; color: var(--muted); font-size: 13px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
+.card { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 10px 8px; background: var(--panel); border: 1px solid var(--line); border-radius: 4px; }
+.card[hidden] { display: none; }
+.card canvas {
+  width: 96px; height: 96px; image-rendering: pixelated;
+  background: repeating-conic-gradient(var(--chk1) 0 25%, var(--chk2) 0 50%) 0 0 / 12px 12px;
+}
+.card b { font-weight: normal; font-size: 14px; text-align: center; }
+.card small { color: var(--muted); font-size: 12px; }
+.card .row { display: flex; gap: 6px; width: 100%; }
+.card .row .btn { flex: 1; padding: 0 4px; }
+.note { margin-top: 20px; font-size: 13px; color: var(--muted); }
+.toast { position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%); background: var(--ink); color: var(--bg); padding: 8px 14px; border-radius: 4px; font-size: 14px; }
+.toast[hidden] { display: none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="logo" href="./">Cre<span>dot</span></a>
+    <div class="grow"></div>
+    <a class="btn primary" href="./">ツールで描く</a>
+  </header>
+
+  <h1>テンプレート一覧</h1>
+  <p class="lead">16×16 のドット絵テンプレートを、PNG でダウンロードしたり、ツールで描き始めたりできます。商用で使うときは <b>1 つの作品につき 30 点まで</b>です（クレジット表記が必要）。くわしくは<a href="https://github.com/credot-official/credot-official.github.io/blob/main/TERMS.md" target="_blank" rel="noopener">利用規約</a>を見てください。</p>
+
+  <div class="panel">
+    <div class="chips" id="cats" role="group" aria-label="種類"><span class="label">種類</span></div>
+    <div class="chips" id="els" role="group" aria-label="属性の色" hidden><span class="label">属性の色</span></div>
+    <div class="chips">
+      <span class="label">大きさ</span>
+      <select id="scale" aria-label="ダウンロードする大きさ">
+        <option value="1">16×16 px（1 倍）</option>
+        <option value="4">64×64 px（4 倍）</option>
+        <option value="8" selected>128×128 px（8 倍）</option>
+        <option value="16">256×256 px（16 倍）</option>
+        <option value="32">512×512 px（32 倍）</option>
+      </select>
+      <input type="search" id="q" placeholder="名前でさがす（例：スライム）" aria-label="名前でさがす">
+    </div>
+  </div>
+
+  <p class="count" id="count" aria-live="polite"></p>
+  <div class="grid" id="grid"></div>
+
+  <p class="note">テンプレートを使わずにツールで自分で描いた絵は、描いた人のものです。自由に使えます。</p>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script src="templates.js"></script>
+<script>
+(() => {
+'use strict';
+const $ = (s) => document.querySelector(s);
+const T = window.CREDOT_TEMPLATES || [], ELEMENTS = window.CREDOT_ELEMENTS || [], LEGEND = window.CREDOT_LEGEND || {};
+const rowsOf = (t) => t.rows || t.m.map((r) => r + [...r].reverse().join(''));
+const isElem = (t) => rowsOf(t).some((r) => /[123]/.test(r));
+const state = { cat: 'すべて', el: 0, q: '' };
+try { const i = +localStorage.getItem('credot-element'); if (ELEMENTS[i]) state.el = i; } catch (e) {}
+
+// Draws template t at s pixels per dot.
+function draw(c, t, el, s) {
+  const rows = rowsOf(t);
+  c.width = rows[0].length * s; c.height = rows.length * s;
+  const x = c.getContext('2d');
+  x.clearRect(0, 0, c.width, c.height);
+  rows.forEach((r, y) => [...r].forEach((ch, i) => {
+    const hex = LEGEND[ch] || (el && el.c['123'.indexOf(ch)]);
+    if (hex) { x.fillStyle = hex; x.fillRect(i * s, y * s, s, s); }
+  }));
+}
+let tt = null;
+function toast(msg) { const el = $('#toast'); el.textContent = msg; el.hidden = false; clearTimeout(tt); tt = setTimeout(() => { el.hidden = true; }, 2200); }
+
+function download(t) {
+  const s = +$('#scale').value, el = isElem(t) ? ELEMENTS[state.el] : null, c = document.createElement('canvas');
+  draw(c, t, el, s);
+  c.toBlob((blob) => {
+    if (!blob) { toast('画像を作れませんでした'); return; }
+    const a = document.createElement('a'), url = URL.createObjectURL(blob);
+    a.href = url; a.download = `credot_${t.name}${el ? '_' + el.name : ''}_${16 * s}px.png`.replace(/[\\/:*?"<>|]/g, '_');
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 10000);
+    toast(`「${t.name}${el ? '（' + el.name + '）' : ''}」をダウンロードしました`);
+  }, 'image/png');
+}
+
+const cards = [];
+function build() {
+  const cats = $('#cats');
+  ['すべて', ...new Set(T.map((t) => t.cat))].forEach((cat) => {
+    const b = document.createElement('button'); b.className = 'btn sm'; b.dataset.cat = cat;
+    b.textContent = cat === 'すべて' ? `すべて（${T.length}）` : cat;
+    b.addEventListener('click', () => { state.cat = cat; update(); });
+    cats.appendChild(b);
+  });
+  const els = $('#els');
+  ELEMENTS.forEach((e, i) => {
+    const b = document.createElement('button'); b.className = 'btn sm'; b.dataset.el = i;
+    b.textContent = e.name; b.style.setProperty('--sw', e.c[1]);
+    b.addEventListener('click', () => { state.el = i; try { localStorage.setItem('credot-element', String(i)); } catch (err) {} redrawElems(); update(); });
+    els.appendChild(b);
+  });
+  const grid = $('#grid');
+  T.forEach((t) => {
+    const card = document.createElement('div'); card.className = 'card';
+    const c = document.createElement('canvas'); c.setAttribute('role', 'img'); c.setAttribute('aria-label', t.name);
+    const name = document.createElement('b'); name.textContent = t.name;
+    const meta = document.createElement('small'); meta.textContent = t.cat;
+    const row = document.createElement('div'); row.className = 'row';
+    const dl = document.createElement('button'); dl.className = 'btn sm primary'; dl.textContent = 'ダウンロード';
+    dl.addEventListener('click', () => download(t));
+    const open = document.createElement('a'); open.className = 'btn sm'; open.textContent = '描く';
+    row.append(dl, open);
+    card.append(c, name, meta, row); grid.appendChild(card);
+    cards.push({ t, card, c, open, elem: isElem(t) });
+  });
+  redrawElems(true);
+}
+function redrawElems(all) {
+  const el = ELEMENTS[state.el];
+  cards.forEach((k) => {
+    if (!all && !k.elem) return;
+    draw(k.c, k.t, k.elem ? el : null, 1);
+    k.open.href = './?tpl=' + encodeURIComponent(k.t.name) + (k.elem ? '&el=' + state.el : '');
+  });
+}
+function update() {
+  const q = state.q.trim();
+  let n = 0;
+  cards.forEach(({ t, card }) => {
+    const show = (state.cat === 'すべて' || t.cat === state.cat) && (!q || t.name.includes(q));
+    card.hidden = !show; if (show) n++;
+  });
+  document.querySelectorAll('#cats .btn').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.cat === state.cat)));
+  document.querySelectorAll('#els .btn').forEach((b) => b.setAttribute('aria-pressed', String(+b.dataset.el === state.el)));
+  $('#els').hidden = !cards.some(({ t, card, elem }) => elem && !card.hidden);
+  $('#count').textContent = n ? `${n} 件` : '見つかりませんでした。別の名前でさがしてみてください。';
+}
+$('#q').addEventListener('input', (e) => { state.q = e.target.value; update(); });
+build(); update();
+})();
+</script>
+</body>
+</html>

@@ -151,7 +151,7 @@ function download(t) {
   c.toBlob((blob) => {
     if (!blob) { toast('画像を作れませんでした'); return; }
     const a = document.createElement('a'), url = URL.createObjectURL(blob);
-    a.href = url; a.download = `credot_${t.name}${el ? '_' + el.name : ''}_${16 * s}px.png`.replace(/[\\/:*?"<>|]/g, '_');
+    a.href = url; a.download = `credot_${t.file || t.name}${el ? '_' + el.name : ''}_${16 * s}px.png`.replace(/[\\/:*?"<>|]/g, '_');
     document.body.appendChild(a); a.click(); a.remove();
     setTimeout(() => URL.revokeObjectURL(url), 10000);
     toast(`「${t.name}${el ? '（' + el.name + '）' : ''}」をダウンロードしました`);

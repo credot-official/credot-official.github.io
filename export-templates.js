@@ -1,6 +1,7 @@
 // Writes every template as PNG files into a folder on this PC.
 // Run: node export-templates.js [out-dir]   (default: exports/templates)
 // Layout: <out>/<scale>x/<category>/<name>.png ; element templates get one file per element (<name>_火.png ...).
+// Map tiles (cat マップ) use their game file name instead: <out>/1x/マップ/tile_grass.png
 const fs = require('fs');
 const path = require('path');
 const zlib = require('zlib');
@@ -39,7 +40,8 @@ function png(rows, el, s) {
 let files = 0;
 for (const t of T) {
   const rows = rowsOf(t), elem = rows.some((r) => /[123]/.test(r));
-  const variants = elem ? ELEMENTS.map((e) => [`${t.name}_${e.name}`, e]) : [[t.name, null]];
+  const base = t.file || t.name; // map tiles carry a game file name (tile_grass ...)
+  const variants = elem ? ELEMENTS.map((e) => [`${base}_${e.name}`, e]) : [[base, null]];
   for (const s of SCALES) {
     const dir = path.join(out, `${s}x`, t.cat.replace(/[\\/:*?"<>|]/g, '_'));
     fs.mkdirSync(dir, { recursive: true });

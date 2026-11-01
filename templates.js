@@ -667,8 +667,316 @@ window.CREDOT_TEMPLATES = [
     '..k32k23', '..k32k23', '.kk32k23', 'k3k32k23', 'k32k1k23', 'k21kk123', 'kkkkkkkk', '.kdddddd',
   ] });
 
+  /* ---------- マップ（上から見下ろす 16×16。file はゲーム用のファイル名） ---------- */
+  T.push({ name: '草地', cat: 'マップ', file: 'tile_grass', rows: [
+    'gggggggggggggggg', 'ggggggggggGggggg', 'gggGgggggGgGgggg', 'ggGgGggggggggggg',
+    'gggggggggggggggg', 'gggggggggggggggg', 'ggggggggggggggGg', 'gggggggggggggGgG',
+    'ggggggGggggggggg', 'gggggGgGgggggggg', 'gggggggggggggggg', 'ggggggggggggGggg',
+    'gggggggggggGgGgg', 'ggGggggggggggggg', 'gGgGggggGggggggg', 'gggggggGgGgggggg',
+  ] });
+  T.push({ name: '土の道', cat: 'マップ', file: 'tile_road', rows: [
+    'bbbbbbbbbbbbbbbb', 'bbbbobbbbbbobbbb', 'bbbddbbbbbbbbbbb', 'bbbbbbbbbbbbbbbb',
+    'bbbbbbobbbbbdbbb', 'bbbbbbbbbbbbbbbb', 'pbbbbbbbobbbbbbb', 'bbbbbbbddbbbbbbb',
+    'bbbbbbbbbbbbbbbb', 'bbobbbbbbbbbbobb', 'bddbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbb',
+    'bbbbbbbbbbobbbdb', 'bbbbbbbbbddbbbbb', 'bbbbbbbbbbbbbbbb', 'bbbbbdbbbbbbbbbp',
+  ] });
+  T.push({ name: '砂地', cat: 'マップ', file: 'tile_sand', rows: [
+    'ssssssssssssssss', 'ssosssswssssssss', 'ssssssssssosssss', 'ssssssssssssssss',
+    'ssssssssssssssss', 'ssssssosssssssss', 'ssswssssssssssos', 'ssssssssssssssss',
+    'ssssssssssssssss', 'sossssssssssswss', 'sssssssssossssss', 'ssssssssssssssso',
+    'ssssssssssssssss', 'ssssosssssssssss', 'sssssssswsssosss', 'ssssssssssssssss',
+  ] });
+  T.push({ name: '砂利', cat: 'マップ', file: 'tile_gravel', rows: [
+    'dddddddddwlddddd', 'dwlldddddllkdddd', 'dlllkddddkkkvddd', 'dkkkkddddddddddd',
+    'dddddddddddddddd', 'dddddddddddddwld', 'dddddwlldddddkkk', 'dddddlllkddddddd',
+    'dddddkkkkddddddv', 'dddvdddddddddddd', 'ddddddddddwllddd', 'wlddddddvdlllkdd',
+    'llkdddddddkkkkdd', 'kkkdddwldddddddd', 'ddddddkkkdddddwl', 'kdddvdddddddddkk',
+  ] });
+  T.push({ name: '闇の地', cat: 'マップ', file: 'tile_gloom', rows: [
+    'nnnnnnnnnnnnnnnn', 'nnnnnnnnnnnnnnnn', 'nkknnnnnnnnpnnnn', 'nnnkkkknnnnnnnnn',
+    'nnnnnnnknnnnnnnn', 'nnnnnnnknvnnnnpn', 'nnnnnnnnnnnnnnnn', 'nnpnnnnnnnnnnnnn',
+    'nnnnnnnnnnnnnnnn', 'nnnnnnpnnnkknnnn', 'nnnnnnnnnnnnkkkk', 'knnnnnnnnnnnnnnn',
+    'nknknnnnpnnnnnnn', 'nnnnknnnnnnnnnnn', 'nnnnnknnnnnnnnnn', 'nvnnnnnnnnnnnnnn',
+  ] });
+  T.push({ name: '水面1', cat: 'マップ', file: 'tile_water_1', rows: [
+    'BBBBBBBBBBBBBBBB', 'BBBBBBBBBBBBBBll', 'BBwwBBBBBBBBBBBB', 'BwBBwBBBBBBBBBBB',
+    'BBBBBBBBBBwwBBBB', 'BBBBBBBBBwBBwBBB', 'BBBBBBllBBBBBBBB', 'BBBBBBBBBBBBBBBB',
+    'BBBBBwwBBBBBBBBB', 'BBBBwBBwBBBBBBBB', 'BBBBBBBBBBBBBwwB', 'BllBBBBBBBBBwBBw',
+    'BBBBBBBBBBBBBBBB', 'BBBBBBBBwwBBBBBB', 'BBBBBBBwBBwBBBBB', 'BBBBBBBBBBBllBBB',
+  ] });
+  T.push({ name: '水面2', cat: 'マップ', file: 'tile_water_2', rows: [
+    'BBBBBBBBBBBBBBBB', 'llBBBBBBBBBBBBBB', 'BBBBwwBBBBBBBBBB', 'BBBwBBwBBBBBBBBB',
+    'BBBBBBBBBBBBwwBB', 'BBBBBBBBBBBwBBwB', 'BBBBBBBBllBBBBBB', 'BBBBBBBBBBBBBBBB',
+    'BBBBBBBwwBBBBBBB', 'BBBBBBwBBwBBBBBB', 'wBBBBBBBBBBBBBBw', 'BwBllBBBBBBBBBwB',
+    'BBBBBBBBBBBBBBBB', 'BBBBBBBBBBwwBBBB', 'BBBBBBBBBwBBwBBB', 'BBBBBBBBBBBBBllB',
+  ] });
+  T.push({ name: '花畑', cat: 'マップ', file: 'tile_flowers', rows: [
+    'gggggggggggggggg', 'ggggggggggGggggg', 'gggwgggggGgGgggg', 'ggwywgggggggPggg',
+    'gggwgggggggPyPgg', 'ggggggggggggPggg', 'gggggggggggggggg', 'gggggggPgggggggg',
+    'ggggggPyPggggggg', 'gwgggggPgggggGgg', 'wywgggggggggGgGg', 'gwgggggggggggggg',
+    'ggggggggggggggwg', 'ggGgggPggggggwyw', 'gGgGgPyPggggggwg', 'ggggggPggggggggg',
+  ] });
+  T.push({ name: '雪原', cat: 'マップ', file: 'tile_snow', rows: [
+    'wwwwwwwwwwwwwwww', 'wwwwwwwwlwwwwwww', 'wlwwwwwwwwwwwwww', 'wwlllwwwwwwwwwww',
+    'wwwwwwwwwwwwwwww', 'wwwwwwwwwlwwwwww', 'wwwwwwwwwwlllwww', 'wwwwwwlwwwwwwwww',
+    'wwwwwwwwwwwwwwww', 'wwwwwwwwwwwwwwlw', 'wwwwlwwwwwwwwwww', 'wwwwwlllwwwwwwww',
+    'wwwwwwwwwwwwlwww', 'wwwwwwwwwwwwwlll', 'wwwwwwwwwwwwwwww', 'wlwwwwwwwwwwwwww',
+  ] });
+  T.push({ name: '砂紋', cat: 'マップ', file: 'tile_dune', rows: [
+    'ssssssssssssssss', 'ssssssssswwwwwww', 'wssssssswooooooo', 'owwwswwwosssssss',
+    'sooowooossssssss', 'ssssosssssssssss', 'sssssssssssssoss', 'ssssssosssssssss',
+    'ssssssssssssssss', 'sssswwwwwwwsssss', 'ssswooooooowssss', 'wwwosssssssowwww',
+    'ooosssssssssoooo', 'ssssssssssssssss', 'ssssssssssssssss', 'ssosssssssssssss',
+  ] });
+  T.push({ name: '光る苔', cat: 'マップ', file: 'tile_glow', rows: [
+    'nnnnnnnnnnnnnnnn', 'nnnnnnBnnnnnnnnn', 'nkknnnnnnnnpgnnn', 'nnnkkkknnnngGgnn',
+    'nnngnnnknnnnggnn', 'nngGgnnknvnnnnpn', 'nnnggnnnnnnnnnnn', 'nnpnnnnnnnnnnnnn',
+    'nnnnnnnnnnnnnnBn', 'nnnnnnpnnnkknnnn', 'nnnnnBnnnnnnkkkk', 'knnnnnnnngnnnnnn',
+    'ngnknnnngGgnnnnn', 'gGgnknnnnggnnnnn', 'nggnnknnnnnnnnnn', 'nvnnnnnnnnnnnnnn',
+  ] });
+  T.push({ name: '町の石畳', cat: 'マップ', file: 'floor_bricks', rows: [
+    'dwlllldddwlllldd', 'llllllldllllllld', 'dvvvvvdddvvvvvdd', 'dddddddddddddddd',
+    'lldddwlllldddwll', 'llldllllllldllll', 'vvdddvvvvvdddvvv', 'dddddddddddddddd',
+    'dwlllldddwlllldd', 'llllllldllllllld', 'dvvvvvdddvvvvvdd', 'dddddddddddddddd',
+    'lldddwlllldddwll', 'llldllllllldllll', 'vvdddvvvvvdddvvv', 'dddddddddddddddd',
+  ] });
+  T.push({ name: '土の床', cat: 'マップ', file: 'floor_dirt', rows: [
+    'dddddddddddddddd', 'ddbbdddddddddddd', 'ddddddddlddddddk', 'dddddkddddbddddd',
+    'dddddddddddbdddd', 'dddddddddddddddd', 'dldddddddddddkdd', 'dddddddddddddddd',
+    'ddddddbbdddddddd', 'dddkdddddddddddd', 'ddddddddddddddbd', 'dddddddddddkdddd',
+    'dbdddddddddddddd', 'ddddddkddddddddd', 'dddddddddbbddddd', 'ddddddddddddlddd',
+  ] });
+  T.push({ name: '石板の床', cat: 'マップ', file: 'floor_slabs', rows: [
+    'vvvvvvvkvvvvvvvk', 'vddddddkvddddddk', 'vddddddkvdkddddk', 'vddddddkvddkdddk',
+    'vddddddkvddkdddk', 'vddddddkvdddkddk', 'vddddddkvddddddk', 'kkkkkkkkkkkkkkkk',
+    'vvvvvvvkvvvvvvvk', 'vddddddkvddddddk', 'vddddddkvddddddk', 'vddnnddkvddddddk',
+    'vddddddkvdddnddk', 'vddddddkvddddddk', 'vddddddkvddddddk', 'kkkkkkkkkkkkkkkk',
+  ] });
+  T.push({ name: '床板', cat: 'マップ', file: 'floor_planks', rows: [
+    'bbbbbpbbobbbbbbb', 'boobbpbbbbbbbbbb', 'bbbbbpbbbbbbbbbb', 'pppppppppppppppp',
+    'bbbbbbbbbbbbbpbb', 'bbbbbbbbbboobpbb', 'bbbobbbbbbbbbpbb', 'pppppppppppppppp',
+    'bbbbbbbbbpbbbbbb', 'bbbbbbbbbpbbbboo', 'bbbbbbbbbpbbbbbb', 'pppppppppppppppp',
+    'bpbbbbbbbbbbobbb', 'bpbbboobbbbbbbbb', 'bpbbbbbbbbbbbbbb', 'pppppppppppppppp',
+  ] });
+  T.push({ name: '草地の木', cat: 'マップ', file: 'obj_tree', rows: [
+    '................', '.....kkkkkk.....', '...kkGGGGGGkk...', '..kGGGGGGGGGGk..',
+    '.kGGwwGGGGGGGgk.', '.kGwGGGGGGGGGgk.', 'kGGGGGGGGGGGGggk', 'kGGGGGGGGGGGgggk',
+    'kgGGGGGGGGGGgggk', 'kggGGGGGGGGggggk', '.kgggGGGGgggggk.', '.kkggggggggggkk.',
+    '...kkkkbbkkkk...', '......kbbk......', '.....kbbbdk.....', '.....kkkkkk.....',
+  ] });
+  T.push({ name: '砂漠のサボテン', cat: 'マップ', file: 'obj_tree_desert', rows: [
+    '................', '.......kk.......', '......kGGk......', '......kwgk......',
+    '..kk..kGgk......', '.kGGk.kGgk..kk..', '.kGgk.kGgk.kGGk.', '.kGgkkkGgk.kGgk.',
+    '.kGGGGGGgkkkGgk.', '..kkkkkGgGGGGgk.', '......kGgkkkkk..', '......kGgk......',
+    '......kGgk......', '.....kkGgkk.....', '....kssssssk....', '.....kkkkkk.....',
+  ] });
+  T.push({ name: '針葉樹', cat: 'マップ', file: 'obj_tree_mountain', rows: [
+    '.......kk.......', '......kGgk......', '.....kGggnk.....', '.....kkGgkk.....',
+    '....kGGgggnk....', '...kGgggggnnk...', '....kkGggnkk....', '...kGGgggggnk...',
+    '..kGgggggggnnk..', '.kGgggggggggnnk.', '...kkGgggnnkk...', '..kGgggggggnnk..',
+    '.kkkkkkkkkkkkkk.', '......kbbk......', '......kbdk......', '.....kkkkkk.....',
+  ] });
+  T.push({ name: '黒い枯れ木', cat: 'マップ', file: 'obj_tree_dark', rows: [
+    '..k......k...k..', '.kdk..k.kdk.kdk.', '.kdk.kdk.kdkkdk.', '..kdkdk..kdkdk..',
+    '..kdkdk...kdk...', '...kdk...kdk....', '....kdkkkdk.....', '.....kdddk......',
+    '......kddk......', '......kvdk......', '......kddk......', '......kvdk......',
+    '......kddk......', '.....kddddk.....', '.....kddddk.....', '......kkkk......',
+  ] });
+  T.push({ name: '岩壁', cat: 'マップ', file: 'tile_rock', rows: [
+    'lllllkllllkllllk', 'lddddkldddkldddk', 'ddvddkddvdkddvdk', 'dddddkddddkddddk',
+    'kkkkkkkkkkkkkkkk', 'llklllllkllllkll', 'ddklddddkldddkld', 'vdkddvddkddvdkdd',
+    'ddkdddddkddddkdd', 'ddkdddddkddddkdd', 'kkkkkkkkkkkkkkkk', 'klllllkllllkllll',
+    'klddddkldddklddd', 'kddvddkddvdkddvd', 'kdddddkddddkdddd', 'kkkkkkkkkkkkkkkk',
+  ] });
+  T.push({ name: '柵（横）', cat: 'マップ', file: 'obj_fence_h', rows: [
+    '................', '................', '..kkkk....kkkk..', '..kobk....kobk..',
+    'kkkobkkkkkkobkkk', 'ookobkooookobkoo', 'bbkobkbbbbkobkbb', 'kkkobkkkkkkobkkk',
+    '..kobk....kobk..', 'kkkobkkkkkkobkkk', 'ookobkooookobkoo', 'bbkobkbbbbkobkbb',
+    'kkkobkkkkkkobkkk', '..kobk....kobk..', '..kkkk....kkkk..', '................',
+  ] });
+  T.push({ name: '柵（縦）', cat: 'マップ', file: 'obj_fence_v', rows: [
+    '......kobk......', '.....kkkkkk.....', '.....koobbk.....', '.....koobbk.....',
+    '.....koobbk.....', '.....kppppk.....', '.....kkkkkk.....', '......kobk......',
+    '......kobk......', '.....kkkkkk.....', '.....koobbk.....', '.....koobbk.....',
+    '.....koobbk.....', '.....kppppk.....', '.....kkkkkk.....', '......kobk......',
+  ] });
+  T.push({ name: '橋（横）', cat: 'マップ', file: 'tile_bridge_h', rows: [
+    'oooooooooooooooo', 'bbbbbbbbbbbbbbbb', 'kkkkkkkkkkkkkkkk', 'obbpobbpobbpobbp',
+    'odbpobbpodbpobbp', 'obbpobbpobbpobbp', 'obbpobbpobbpobbp', 'obbpobbpobbpobbp',
+    'obbpobbpobbpobbp', 'obbpobbpobbpobbp', 'obbpobbpobbpobbp', 'obbpodbpobbpodbp',
+    'obbpobbpobbpobbp', 'kkkkkkkkkkkkkkkk', 'oooooooooooooooo', 'bbbbbbbbbbbbbbbb',
+  ] });
+  T.push({ name: '橋（縦）', cat: 'マップ', file: 'tile_bridge_v', rows: [
+    'obkooooooooookob', 'obkbdbbbbbbbbkob', 'obkbbbbbbbbbbkob', 'obkppppppppppkob',
+    'obkooooooooookob', 'obkbbbbbbbbdbkob', 'obkbbbbbbbbbbkob', 'obkppppppppppkob',
+    'obkooooooooookob', 'obkbdbbbbbbbbkob', 'obkbbbbbbbbbbkob', 'obkppppppppppkob',
+    'obkooooooooookob', 'obkbbbbbbbbdbkob', 'obkbbbbbbbbbbkob', 'obkppppppppppkob',
+  ] });
+  T.push({ name: '上り階段', cat: 'マップ', file: 'tile_stairs_up', rows: [
+    'kdwwwwwwwwwwwwdk', 'kdlllllllllllldk', 'kdlllllllllllldk', 'kddddddddddddddk',
+    'kdwwwwwwwwwwwwdk', 'kdlllllllllllldk', 'kdlllllllllllldk', 'kddddddddddddddk',
+    'kdwwwwwwwwwwwwdk', 'kdlllllllllllldk', 'kdlllllllllllldk', 'kddddddddddddddk',
+    'kdwwwwwwwwwwwwdk', 'kdlllllllllllldk', 'kdlllllllllllldk', 'kddddddddddddddk',
+  ] });
+  T.push({ name: '下り階段', cat: 'マップ', file: 'tile_stairs_down', rows: [
+    'kddddddddddddddk', 'kdkkkkkkkkkkkkdk', 'kdkkkkkkkkkkkkdk', 'kdkkkkkkkkkkkkdk',
+    'kddddddddddddddk', 'kddddddddddddddk', 'kdnnnnnnnnnnnndk', 'kdkkkkkkkkkkkkdk',
+    'kdlllllllllllldk', 'kddddddddddddddk', 'kddddddddddddddk', 'kdkkkkkkkkkkkkdk',
+    'kdwwwwwwwwwwwwdk', 'kdlllllllllllldk', 'kdlllllllllllldk', 'kddddddddddddddk',
+  ] });
+  T.push({ name: '屋根', cat: 'マップ', file: 'house_roof', rows: [
+    'PrrrPrrrPrrrPrrr', 'rrrrrrrrrrrrrrrr', 'prrpprrpprrpprrp', 'kppkkppkkppkkppk',
+    'rrPrrrPrrrPrrrPr', 'rrrrrrrrrrrrrrrr', 'rpprrpprrpprrppr', 'pkkppkkppkkppkkp',
+    'PrrrPrrrPrrrPrrr', 'rrrrrrrrrrrrrrrr', 'prrpprrpprrpprrp', 'kppkkppkkppkkppk',
+    'rrPrrrPrrrPrrrPr', 'rrrrrrrrrrrrrrrr', 'rpprrpprrpprrppr', 'pkkppkkppkkppkkp',
+  ] });
+  T.push({ name: '家の壁', cat: 'マップ', file: 'house_wall', rows: [
+    'ssssbsswssssssss', 'ssssbsssssssssss', 'ssssbsssssssssss', 'bbbbbbbbbbbbbbbb',
+    'ssssssssssssbssw', 'ssssssssssssbsss', 'ssssssssssssbsss', 'bbbbbbbbbbbbbbbb',
+    'ssssssssbsswssss', 'ssssssssbsssssss', 'ssssssssbsssssss', 'bbbbbbbbbbbbbbbb',
+    'bsswssssssssssss', 'bsssssssssssssss', 'bsssssssssssssss', 'bbbbbbbbbbbbbbbb',
+  ] });
+  T.push({ name: '家の扉', cat: 'マップ', file: 'house_door', rows: [
+    'ssssbsswssssssss', 'ssskkkkkkkkkksss', 'ssskooooooooksss', 'bbbkbbpbbpbbkbbb',
+    'ssskbbpbbpbbkssw', 'ssskbbpbbpbbksss', 'ssskbbpbbpbbksss', 'bbbkbbpbbpbbkbbb',
+    'ssskbbpbbpbbksss', 'ssskbbpbbpybksss', 'ssskbbpbbpobksss', 'bbbkbbpbbpbbkbbb',
+    'bsskbbpbbpbbksss', 'bsskbbpbbpbbksss', 'bsskbbpbbpbbksss', 'bbbkbbpbbpbbkbbb',
+  ] });
+  T.push({ name: '家の窓', cat: 'マップ', file: 'house_window', rows: [
+    'ssssbsswssssssss', 'ssssbsssssssssss', 'sskkkkkkkkkkkkss', 'bbkbbbbbbbbbbkbb',
+    'sskbBBBbbBBBbksw', 'sskbBwBbbwBBbkss', 'sskbBBBbbBBBbkss', 'bbkbbbbbbbbbbkbb',
+    'sskbBwBbbBwBbkss', 'sskbBBBbbBBBbkss', 'sskbBBBbbBBBbkss', 'bbkbbbbbbbbbbkbb',
+    'bskkkkkkkkkkkkss', 'bsooooooooooooss', 'bskkkkkkkkkkkkss', 'bbbbbbbbbbbbbbbb',
+  ] });
+  T.push({ name: '部屋の壁', cat: 'マップ', file: 'in_wall', rows: [
+    'llllllllllllllll', 'wwwwwwwwwwwwwwww', 'wwwwwwwwwwwwwwlw', 'wwwlwwwwwwwwwwww',
+    'wwwwwwwwwwwwwwww', 'wwwwwwwwwwwlwwww', 'wwwwwwwwwwwwwwww', 'wwwwwwlwwwwwwwww',
+    'wlwwwwwwwwwwwwww', 'wwwwwwwwwwwwwwww', 'oooooooooooooooo', 'bbbpbbbpbbbpbbbp',
+    'bbbpbbbpbbbpbbbp', 'bbbpbbbpbbbpbbbp', 'bbbpbbbpbbbpbbbp', 'pppppppppppppppp',
+  ] });
+  T.push({ name: '部屋の扉', cat: 'マップ', file: 'in_door', rows: [
+    'llllllllllllllll', 'wwwwwwwwwwwwwwww', 'wwwppppppppppwlw', 'wwwpbbbbbbbbpwww',
+    'wwwpboooooobpwww', 'wwwpboboobobpwww', 'wwwpboboobobpwww', 'wwwpboboobobpwww',
+    'wlwpboooooobpwww', 'wwwpbbbbbbybpwww', 'ooopboooooobpooo', 'bbbpboboobobpbbp',
+    'bbbpboboobobpbbp', 'bbbpboboobobpbbp', 'bbbpboooooobpbbp', 'ppppbbbbbbbbpppp',
+  ] });
+  T.push({ name: 'ベッド', cat: 'マップ', file: 'in_bed', rows: [
+    '..kkkkkkkkkkkk..', '..kobbbbbbbbbk..', '..kbbbbbbbbbbk..', '..kkkkkkkkkkkk..',
+    '..kllllllllllk..', '..klkwwwwwwklk..', '..klkwwwwwlklk..', '..klkkkkkkkklk..',
+    '..kwwwwwwwwwwk..', '..kBBBBBBBBBnk..', '..kBwBBBBBBBnk..', '..kBBBBBBBBBnk..',
+    '..kBBBBBBBBBnk..', '..kBBBBBBBBBnk..', '..knnnnnnnnnnk..', '..kkkkkkkkkkkk..',
+  ] });
+  T.push({ name: 'テーブル', cat: 'マップ', file: 'in_table', rows: [
+    '................', '................', '................', '.kkkkkkkkkkkkkk.',
+    '.kssssssssssssk.', '.kooooooooooook.', '.kooooooooooook.', '.kooooooooooook.',
+    '.kooooooooooook.', '.kooooooooooook.', '.kbbbbbbbbbbbbk.', '.kkkkkkkkkkkkkk.',
+    '.kbk........kbk.', '.kbk........kbk.', '.kkk........kkk.', '................',
+  ] });
+  T.push({ name: '椅子', cat: 'マップ', file: 'in_chair', rows: [
+    '................', '....kkk.........', '....kok.........', '....kok.........',
+    '....kok.........', '....kok.........', '....kok.........', '....kok.........',
+    '....kokkkkkkkk..', '....kooooooook..', '....kbbbbbbbbk..', '....kkkkkkkkkk..',
+    '....kbk....kbk..', '....kbk....kbk..', '....kbk....kbk..', '....kkk....kkk..',
+  ] });
+  T.push({ name: 'カウンター左', cat: 'マップ', file: 'in_counter_l', rows: [
+    '................', '................', '................', '.kkkkkkkkkkkkkkk',
+    'kkssssssssssssss', 'kooooooooooooooo', 'kooooooooooooooo', 'kooooooooooooooo',
+    'kkkkkkkkkkkkkkkk', 'kbbbbbbbbbbbbbbb', 'kppppppbbppppppb', 'kpbbbbpbbpbbbbpb',
+    'kppppppbbppppppb', 'kbbbbbbbbbbbbbbb', 'kppppppppppppppp', 'kkkkkkkkkkkkkkkk',
+  ] });
+  T.push({ name: 'カウンター中', cat: 'マップ', file: 'in_counter_m', rows: [
+    '................', '................', '................', 'kkkkkkkkkkkkkkkk',
+    'ssssssssssssssss', 'oooooooooooooooo', 'oooooooooooooooo', 'oooooooooooooooo',
+    'kkkkkkkkkkkkkkkk', 'bbbbbbbbbbbbbbbb', 'bppppppbbppppppb', 'bpbbbbpbbpbbbbpb',
+    'bppppppbbppppppb', 'bbbbbbbbbbbbbbbb', 'pppppppppppppppp', 'kkkkkkkkkkkkkkkk',
+  ] });
+  T.push({ name: 'カウンター右', cat: 'マップ', file: 'in_counter_r', rows: [
+    '................', '................', '................', 'kkkkkkkkkkkkkkk.',
+    'sssssssssssssskk', 'oooooooooooooook', 'oooooooooooooook', 'oooooooooooooook',
+    'kkkkkkkkkkkkkkkk', 'bbbbbbbbbbbbbbbk', 'bppppppbbppppppk', 'bpbbbbpbbpbbbbpk',
+    'bppppppbbppppppk', 'bbbbbbbbbbbbbbbk', 'pppppppppppppppk', 'kkkkkkkkkkkkkkkk',
+  ] });
+  T.push({ name: '本棚', cat: 'マップ', file: 'in_shelf', rows: [
+    '.kkkkkkkkkkkkkk.', '.kooooooooooook.', '.kbbbbbbbbbbbbk.', '.kbrrBBkkyyPPbk.',
+    '.kbrrBBGGyyPPbk.', '.kbrwBBGGywPPbk.', '.kbrrBBGGyyPPbk.', '.kbbbbbbbbbbbbk.',
+    '.kbkkllooBBkkbk.', '.kbGGllooBBrrbk.', '.kbGGlwooBwrrbk.', '.kbGGllooBBrrbk.',
+    '.kbbbbbbbbbbbbk.', '.kppppppppppppk.', '.kkkkkkkkkkkkkk.', '................',
+  ] });
+  T.push({ name: 'かまど', cat: 'マップ', file: 'in_stove', rows: [
+    '....kkkkkkkk....', '...kdlldddddk...', '...kddddddddk...', '...kkkkkkkkkk...',
+    '.kkkkkkkkkkkkkk.', '.kwwwwwwwwwwwwk.', '.kllllldllllldk.', '.kllldkkkkdlldk.',
+    '.kdddkkkkkkdddk.', '.klldkkkkkklllk.', '.klldkkkkkklllk.', '.kdddkkkykkdddk.',
+    '.klllkrorrklldk.', '.klllkoyooklldk.', '.kdddkrrrrkdddk.', '.kkkkkkkkkkkkkk.',
+  ] });
+  T.push({ name: '炉', cat: 'マップ', file: 'in_forge', rows: [
+    '......kddk......', '......kddk......', '......kddk......', '..kkkkkkkkkkkk..',
+    '..kldddddddddk..', '..kkkkkkkkkkkk..', '.kbbbbbpbbbbbpk.', '.kbbbbbpbbbbbpk.',
+    '.kpkkkkkkkkkkpk.', '.kbkrorrrrorkbk.', '.kbkrrororrrkbk.', '.kpkooooooookpk.',
+    '.kbkoyyyywyokpk.', '.kbkoyywyyyokpk.', '.kppppppppppppk.', '.kkkkkkkkkkkkkk.',
+  ] });
+  T.push({ name: 'じゅうたん', cat: 'マップ', file: 'in_rug', rows: [
+    'orrryrrrorrryrrr', 'rorrrrrororrrrro', 'rrorrrorrrorrror', 'rrroporrrrroporr',
+    'yrrpoprryrrpoprr', 'rrroporrrrroporr', 'rrorrrorrrorrror', 'rorrrrrororrrrro',
+    'orrryrrrorrryrrr', 'rorrrrrororrrrro', 'rrorrrorrrorrror', 'rrroporrrrroporr',
+    'yrrpoprryrrpoprr', 'rrroporrrrroporr', 'rrorrrorrrorrror', 'rorrrrrororrrrro',
+  ] });
+  T.push({ name: '武器掛け', cat: 'マップ', file: 'in_weapon_rack', rows: [
+    '...kwk.kwk......', '...klk.klk.kk...', '.kkklkklllkblkk.', 'kbbblbbbbbbbllbk',
+    'kbkklkkkbkkbllbk', 'kbkklk.kbkkblkbk', 'kbkklk.kbkkbkkbk', 'kbkklk.kbkkbkkbk',
+    'kbkklk.kbkkbkkbk', 'kbkyyykkbkkbkkbk', 'kbkkbkkkbkkbkkbk', 'kbbbbbbbbbbbbbbk',
+    'kbkkbkkkbkkbkkbk', 'kbk.k..kbkkbkkbk', 'kbk.....k..k.kbk', '.k............k.',
+  ] });
+  T.push({ name: 'よろい飾り', cat: 'マップ', file: 'in_armor', rows: [
+    '......krrk......', '.....kwlllk.....', '.....kllllk.....', '.....kddddk.....',
+    '...kkkllllkkk...', '..kwllwlllwllk..', '..klllwlldlllk..', '...kkkwlldkkk...',
+    '.....kwlldk.....', '.....kllldk.....', '.....kbybbk.....', '....kddddddk....',
+    '....kddddddk....', '....kkkbbkkk....', '...kbbbbbbbbk...', '....kkkkkkkk....',
+  ] });
+  T.push({ name: '金床', cat: 'マップ', file: 'in_anvil', rows: [
+    '................', '................', '.kkkkkkkkkkkkk..', 'kwllllllllllllk.',
+    '.kkddddddddddk..', '...kkklddddkk...', '....kkdddddkk...', '...kdddddddddk..',
+    '..kooooooooook..', '..kobbbbbbbbbk..', '..kobbbbbbpbbk..', '..kobbpbbbpbbk..',
+    '..kobbpbbbpbbk..', '..kobbpbbbbbbk..', '..kobbbbbbbbbk..', '...kkkkkkkkkk...',
+  ] });
+  T.push({ name: '開いた宝箱', cat: 'マップ', file: 'obj_chest_open', rows: [
+    '...kbobbbbobk...', '..kbbobbbbobbk..', '..kbbobbbbobbk..', '..kbbobbbbobbk..',
+    '..kbbobbbbobbk..', '..kooooooooook..', '..kppyppyppppk..', '..kpypyywypypk..',
+    '.kooooooooooook.', '.kbbobbyybbobbk.', '.kbbobbyybbobbk.', '.kbbobbbbbbobbk.',
+    '.kbbobbbbbbobbk.', '.kbbobbbbbbobbk.', '..kkkkkkkkkkkk..', '................',
+  ] });
+  T.push({ name: '看板', cat: 'マップ', file: 'obj_sign', rows: [
+    '................', '..kkkkkkkkkkkk..', '.kooooooooooook.', '.kobbbbbbbbbbbk.',
+    '.kobppppppppbbk.', '.kobbbbbbbbbbbk.', '.kobppppppbbbbk.', '.kobbbbbbbbbbbk.',
+    '.kobbbbbbbbbbbk.', '..kkkkkbbkkkkk..', '......kobk......', '......kbbk......',
+    '......kobk......', '......kbbk......', '......kbbk......', '.......kk.......',
+  ] });
+  T.push({ name: '記憶の水晶', cat: 'マップ', file: 'obj_crystal', rows: [
+    '.......kk.......', '......kBnk......', '.....kBwBnk..w..', '.B..kBBwBBnk....',
+    '...kBwBwBBBnk...', '..kBwwBwBBBBnk..', '..kBwwBwBBBBnk..', '...kBwBwBBBnk.B.',
+    '....kBBwBBnk....', '..w..kBwBnk.....', '......kBnk......', '....kkkkkkkk....',
+    '...kllllllllk...', '....kldddddk....', '...kkddddddkk...', '..kddddddddddk..',
+  ] });
+  T.push({ name: '樽', cat: 'マップ', file: 'obj_barrel', rows: [
+    '................', '....kkkkkkkk....', '...kboooooobk...', '...kbbbbbbbbk...',
+    '..kbobbbbbbbbk..', '..kddddddddddk..', '.kbobbbbbbbbbbk.', '.kbobbbbbbbbbpk.',
+    '.kbobbbbbbbbbpk.', '.kbobbbbbbbbbpk.', '.kbobbbbbbbbbpk.', '..kddddddddddk..',
+    '..kbobbbbbbbpk..', '...kbbbbbbbbk...', '....kkkkkkkk....', '................',
+  ] });
+  T.push({ name: '木箱', cat: 'マップ', file: 'obj_crate', rows: [
+    '................', '..kkkkkkkkkkkk..', '..kooooooooook..', '..kbbbbbbbbbbk..',
+    '..kkkkkkkkkkkk..', '..kooooooooook..', '..koopbbbbbbok..', '..kobopbbbbbok..',
+    '..kobbopbbbbok..', '..kobbbopbbbok..', '..kobbbbopbbok..', '..kobbbbbopbok..',
+    '..kobbbbbbopbk..', '..kooooooooook..', '..kkkkkkkkkkkk..', '................',
+  ] });
+  T.push({ name: 'つぼ', cat: 'マップ', file: 'obj_pot', rows: [
+    '................', '....kkkkkkkk....', '....kbkkkkbk....', '.....kbbbbk.....',
+    '.....kooook.....', '....kooooook....', '...ksoooooobk...', '..ksooooooobbk..',
+    '..ksooooooobbk..', '..koooooooobbk..', '..kbbbbbbbbbbk..', '..kooooooobbbk..',
+    '...kooooobbbk...', '....kbbbbbbk....', '.....kkkkkk.....', '................',
+  ] });
+
   // 種類ボタンの並び順
-  const ORDER = ['キャラ', 'ジョブ', '仲間', '町の人', '属性', 'モンスター', 'ボス', 'アイテム', '食べ物', '自然', '動物', '記号', 'タイル', '乗り物・建物'];
+  const ORDER = ['キャラ', 'ジョブ', '仲間', '町の人', '属性', 'モンスター', 'ボス', 'アイテム', '食べ物', '自然', '動物', '記号', 'タイル', 'マップ', '乗り物・建物'];
   T.sort((a, b) => ORDER.indexOf(a.cat) - ORDER.indexOf(b.cat));
 })();
 
